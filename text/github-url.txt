@@ -1,0 +1,50 @@
+https://github.com/lorien/grab.git rt requirements_dev.txt tests
+https://github.com/AtsushiSakai/PythonRobotics.git rt requirements/requirements.txt tests
+https://github.com/flask-api/flask-api.git t flask_api/tests
+https://github.com/dbader/schedule.git rt requirements-dev.txt test_schedule.py
+https://github.com/python-pillow/Pillow.git t Tests
+https://github.com/Supervisor/supervisor.git t supervisor/tests
+https://github.com/Parsely/streamparse.git rt test-requirements.txt test
+https://github.com/spotify/dh-virtualenv.git rt dev-requirements.txt test
+https://github.com/mitmproxy/pdoc.git rt requirements-dev.txt test
+https://github.com/pallets/click.git rt requirements/tests.txt tests
+https://github.com/amitt001/delegator.py.git t tests
+https://github.com/faif/python-patterns.git rt requirements-dev.txt tests
+https://github.com/encode/uvicorn.git rt requirements.txt tests
+https://github.com/jiaaro/pydub.git t test/test.py
+https://github.com/jpadilla/pyjwt.git t tests
+https://github.com/pyeve/cerberus.git t cerberus/tests
+https://github.com/grantjenks/python-diskcache.git rt requirements.txt tests
+https://github.com/errbotio/errbot.git rt requirements.txt tests
+https://github.com/psf/black.git rt test_requirements.txt tests
+https://github.com/nvbn/thefuck.git rt requirements.txt tests
+https://github.com/PythonCharmers/python-future.git t tests
+https://github.com/HBNetwork/python-decouple.git rt requirements.txt tests
+https://github.com/arrow-py/arrow.git rt requirements/requirements-tests.txt tests
+https://github.com/inducer/pudb.git rt requirements.dev.txt test
+https://github.com/akfamily/akshare.git rt requirements-dev.txt tests
+https://github.com/mwaskom/seaborn.git t tests
+https://github.com/PyFilesystem/pyfilesystem2.git t tests
+https://github.com/wtforms/wtforms.git t tests
+https://github.com/Suor/funcy.git rt test_requirements.txt tests
+https://github.com/graphql-python/graphene.git t graphene/tests
+https://github.com/geopy/geopy.git t test
+https://github.com/gawel/pyquery.git t tests
+https://github.com/psf/requests.git rt requirements-dev.txt tests
+https://github.com/pallets-eco/blinker.git t tests
+https://github.com/0rpc/zerorpc-python.git t tests
+https://github.com/elastic/elasticsearch-dsl-py.git t tests
+https://github.com/marshmallow-code/marshmallow.git t tests
+https://github.com/py-pdf/pypdf.git rt requirements/dev.txt tests
+https://github.com/lektor/lektor.git t tests
+https://github.com/celery/celery.git rt requirements/test.txt t
+https://github.com/gruns/furl.git t tests
+https://github.com/Zulko/moviepy.git t tests
+https://github.com/miracle2k/webassets.git rt requirements-dev.pip tests
+https://github.com/Alir3z4/html2text.git t test
+https://github.com/benoitc/gunicorn.git rt requirements_dev.txt tests
+https://github.com/stephenmcd/mezzanine.git t tests
+https://github.com/scottrogowski/code2flow.git t tests
+https://github.com/patx/pickledb.git t ./tests.py
+https://github.com/libvips/pyvips.git t tests
+https://github.com/hynek/structlog.git t tests
