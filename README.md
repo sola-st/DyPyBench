@@ -28,7 +28,7 @@ You can use DyPyBench in one of the three following ways:
     - docker start -i dypybench
     - ./scripts/install-all-projects.sh > install.log 2>&1
 
-### Second way: Use existing Docker Image of DyPyBench from DockerHub
+### Second way: Use existing Docker Image of DyPyBench from DockerHub (OUTDATED)
 1. Pull the docker image from dockerhub
     - docker pull dypybench/dypybench:v1.0
 2. Run the docker image to start the container
@@ -38,10 +38,10 @@ You can use DyPyBench in one of the three following ways:
 
 ### Third way: Use existing Docker Image of DyPyBench from Zenodo
 1. Download the docker image provided in tar format.
-    - dypybench.tar (Image of DyPyBench) (REMOVED FOR ANONYMITY)
-    - dypybench_lexecutor.tar (Image with LExecutor analysis experiment) (REMOVED FOR ANONYMITY)
-    - dypybench_pycg.tar (Image with PyCG analysis experiment) (REMOVED FOR ANONYMITY)
-    - dypybench_dynapyt.tar (Image with DynaPyt analysis experiment) (REMOVED FOR ANONYMITY)
+    - dypybench.tar (Image of DyPyBench) (OUTDATED)
+    - dypybench_lexecutor.tar (Image with LExecutor analysis experiment) (OUTDATED)
+    - dypybench_pycg.tar (Image with PyCG analysis experiment) (OUTDATED)
+    - dypybench_dynapyt.tar (Image with DynaPyt analysis experiment) (OUTDATED)
 2. Load the docker image from tar file
     - docker load --input dypybench.tar
 3. Run the docker image to start the container
