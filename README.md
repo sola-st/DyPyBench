@@ -3,40 +3,27 @@ The first benchmark of Python projects that is large-scale, diverse, ready-to-ru
 ready-to-analyze (i.e., using an integrated Python dynamic analysis framework). The benchmark encompasses
 50 popular open-source projects from various application domains, with a total of 681K lines of Python code,
 and 30K test cases.
-## Setting Up DyPyBench
 
+
+## Ready-to-Use Docker Image of DyPyBench
+A quick way to use DyPyBench is download one of our images from DockerHub or ZenoDo (see instructions below) a then login to the docker.
+
+A good practice is to always **start by running the test cases for each project**. This will create a folder for the project under ~/temp/projectN and will have all the installed dependencies and configuration.
+
+For any downstream task, use the projects folders under ~/temp that are created after running the test cases.
 ### Requirements
-- Python >= 3.8
-- pip >= 22.0
-- python3-virtualenv >= 20.16.6
-- ffmpeg (project requirement)
-- libjpeg8-dev (project requirement)
-- libavcodec-extra (project requirement)
-- Git >= 2.34
-- Docker >= 20.10
+    To use our shared image of dypybench, you need to have the following requirements:
+    - Docker >= 20.10
 
-You can use DyPyBench in one of the three following ways:
-
-### First way: Setup DyPyBench on new fresh Docker Container
-1. Clone DyPyBench Repository
-    - git clone this repo
-2. Build docker image using docker build command
-    - docker build -t dypybench .
-3. Run the created docker image to start the container
-    - docker run -itd --name dypybench dypybench
-4. Login to the docker container and execute the bash scripts.
-    - docker start -i dypybench
-    - ./scripts/install-all-projects.sh > install.log 2>&1
-
-### Second way: Use existing Docker Image of DyPyBench from DockerHub (OUTDATED)
+### Fetching the image from DockerHub
 1. Pull the docker image from dockerhub
-    - docker pull dypybench/dypybench:v1.0
+    - docker pull [WAITING TO UPLOAD V2]
 2. Run the docker image to start the container
-    - docker run -itd --name dypybench dypybench/dypybench:v1.0
+    - docker run -itd --name dypybench [WAITING TO UPLOAD V2]
 3. Login to the container
     - docker start -i dypybench
 
-### Third way: Use existing Docker Image of DyPyBench from Zenodo
+### Alternative: Fetching the image from Zenodo
 1. Download the docker image provided in tar format.
     - dypybench.tar (Image of DyPyBench) (OUTDATED)
     - dypybench_lexecutor.tar (Image with LExecutor analysis experiment) (OUTDATED)
@@ -126,3 +113,26 @@ Here is the list of all available flags that you can use with each command.
     - docker cp container_name:container_path local_path 
 3. Copy files or folders individually to running container from local machine
     - docker cp local_path container_name:container_path
+
+
+## Build DyPyBench from Scratch
+### Requirements
+    - Python >= 3.8
+    - pip >= 22.0
+    - python3-virtualenv >= 20.16.6
+    - ffmpeg (project requirement)
+    - libjpeg8-dev (project requirement)
+    - libavcodec-extra (project requirement)
+    - Git >= 2.34
+    - Docker >= 20.10
+
+### Steps
+1. Clone DyPyBench Repository
+    - git clone this repo
+2. Build docker image using docker build command
+    - docker build -t dypybench .
+3. Run the created docker image to start the container
+    - docker run -itd --name dypybench dypybench
+4. Login to the docker container and execute the bash scripts.
+    - docker start -i dypybench
+    - ./scripts/install-all-projects.sh > install.log 2>&1
