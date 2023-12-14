@@ -18,7 +18,7 @@ For any downstream task, use the projects folders under ~/temp that are created 
     - Docker >= 20.10
 
 ### Fetching the image from DockerHub
-1. Pull the docker image from dockerhub
+1. Pull the docker image from dockerhub [<img src="https://img.shields.io/badge/dockerhub-DyPyBench-blue.svg?logo=Docker">](https://hub.docker.com/r/islemdockerdev/dypybench)
     - docker pull docker pull islemdockerdev/dypybench:v2.0
 2. Run the docker image to start the container
     - docker run -itd --name dypybench islemdockerdev/dypybench:v2.0
