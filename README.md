@@ -6,7 +6,7 @@ and 30K test cases.
 
 
 ## Ready-to-Use Docker Image of DyPyBench
-A quick way to use DyPyBench is download one of our images from DockerHub or ZenoDo (see instructions below) a then login to the docker.
+A quick way to use DyPyBench is to download one of our images from DockerHub or ZenoDo (see instructions below); then login to the docker image.
 
 A good practice is to always **start by running the test cases for each project**. This will create a folder for the project under ~/temp/projectN and will have all the installed dependencies and configuration.
 
