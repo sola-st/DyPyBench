@@ -6,6 +6,8 @@ and 30K test cases.
 
 
 ## Ready-to-Use Docker Image of DyPyBench
+**Important Note**
+
 A quick way to use DyPyBench is to download one of our images from DockerHub or ZenoDo (see instructions below); then login to the docker image.
 
 A good practice is to always **start by running the test cases for each project**. This will create a folder for the project under ~/temp/projectN and will have all the installed dependencies and configuration.
@@ -17,13 +19,13 @@ For any downstream task, use the projects folders under ~/temp that are created 
 
 ### Fetching the image from DockerHub
 1. Pull the docker image from dockerhub
-    - docker pull [WAITING TO UPLOAD V2]
+    - docker pull docker pull islemdockerdev/dypybench:v2.0
 2. Run the docker image to start the container
-    - docker run -itd --name dypybench [WAITING TO UPLOAD V2]
+    - docker run -itd --name dypybench islemdockerdev/dypybench:v2.0
 3. Login to the container
     - docker start -i dypybench
 
-### Alternative: Fetching the image from Zenodo
+### Alternative: Fetching the image from Zenodo [OUTDATED VERSION, PLEASE IGNORE UNTIL UPDATE]
 1. Download the docker image provided in tar format.
     - dypybench.tar (Image of DyPyBench) (OUTDATED)
     - dypybench_lexecutor.tar (Image with LExecutor analysis experiment) (OUTDATED)
