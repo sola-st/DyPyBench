@@ -24,7 +24,7 @@ For any downstream task, use the projects folders under ~/temp that are created 
     - docker run -itd --name dypybench islemdockerdev/dypybench:v2.0
 3. Login to the container
     - docker start -i dypybench
-4. Copy the files "dypybench.py" and the files inside the folder "text" from this repository to replace the ones inside the docker image.
+4. **Copy the files "dypybench.py" and the files inside the folder "text" from this repository to replace the ones inside the docker image.**
 
 ### Alternative: Fetching the image from Zenodo [OUTDATED VERSION, PLEASE IGNORE UNTIL UPDATE]
 1. Download the docker image provided in tar format.
