@@ -26,18 +26,16 @@ For any downstream task, use the projects folders under ~/temp that are created 
     - docker start -i dypybench
 4. **Copy the files "dypybench.py" and the files inside the folder "text" from this repository to replace the ones inside the docker image.**
 
-### Alternative: Fetching the image from Zenodo [OUTDATED VERSION, PLEASE IGNORE UNTIL UPDATE]
-1. Download the docker image provided in tar format.
-    - dypybench.tar (Image of DyPyBench) (OUTDATED)
-    - dypybench_lexecutor.tar (Image with LExecutor analysis experiment) (OUTDATED)
-    - dypybench_pycg.tar (Image with PyCG analysis experiment) (OUTDATED)
-    - dypybench_dynapyt.tar (Image with DynaPyt analysis experiment) (OUTDATED)
-2. Load the docker image from tar file
-    - docker load --input dypybench.tar
-3. Run the docker image to start the container
-    - docker run -itd --name dypybench dypybench
-4. Login to the container
-    - docker start -i dypybench
+### Patching mechanism:
+Due to the substantial size of the image (55GB), uploading a new image for minor changes is impractical. Consequently, we propose implementing a patching mechanism as follows:
+
+- Patches addressing specific issues will appear in the "Releases" section of this repository; they will be provided as zip files.
+    
+- Copy the patch zip file into the Docker container and proceed to unzip it
+    
+- Execute the command "python3.10 patchXX.py" within the container, replacing "patchXX.py" with the accurate script name obtained after unzipping the patch.
+
+
 
 ## DyPyBench usage manual
 Here is a list of the most useful commands of DyPyBench.
