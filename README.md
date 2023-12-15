@@ -24,7 +24,6 @@ For any downstream task, use the projects folders under ~/temp that are created 
     - docker run -itd --name dypybench islemdockerdev/dypybench:v2.0
 3. Login to the container
     - docker start -i dypybench
-4. **Copy the files "dypybench.py" and the files inside the folder "text" from this repository to replace the ones inside the docker image.**
 
 ### Patching mechanism:
 Due to the substantial size of the image (55GB), uploading a new image for minor changes is impractical. Consequently, we propose implementing a patching mechanism as follows:
@@ -32,10 +31,24 @@ Due to the substantial size of the image (55GB), uploading a new image for minor
 - Patches addressing specific issues will appear in the "Releases" section of this repository; they will be provided as zip files.
     
 - Copy the patch zip file into the Docker container and proceed to unzip it
+
+    ```bash
+    # Copy the patch to the docker image
+    docker cp patch_XX.zip dypybench:/DyPyBench
+    # Inside your docker, in the directory /DyPyBench run this command
+    unzip patch_XX.zip
+    ```
     
-- Execute the command "python3.10 patchXX.py" within the container, replacing "patchXX.py" with the accurate script name obtained after unzipping the patch.
+- Execute the command "python3.10 patch_XX.py" within the container, replacing "patch_XX.py" with the accurate script name obtained after unzipping the patch.
+    ```bash
+    # move to the patch directory
+    cd patch_XX
+    # execute the patch script
+    python3.10 patch_XX.py
+    ```
 
-
+### The list of important patches:
+* [patch_2.1](https://github.com/sola-st/DyPyBench/releases/tag/v2.1.0)
 
 ## DyPyBench usage manual
 Here is a list of the most useful commands of DyPyBench.
