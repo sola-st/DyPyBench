@@ -19,7 +19,7 @@ For any downstream task, use the projects folders under ~/temp that are created 
 
 ### Fetching the image from DockerHub
 1. Pull the docker image from dockerhub [<img src="https://img.shields.io/badge/dockerhub-DyPyBench-blue.svg?logo=Docker">](https://hub.docker.com/r/islemdockerdev/dypybench)
-    - docker pull docker pull islemdockerdev/dypybench:v2.0
+    - docker pull islemdockerdev/dypybench:v2.0
 2. Run the docker image to start the container
     - docker run -itd --name dypybench islemdockerdev/dypybench:v2.0
 3. Login to the container
@@ -102,7 +102,7 @@ Here is the list of all available flags that you can use with each command.
 13. --lex_test / -lt
     - Specify the project no. to run LExecutor for trace generation
 14. --timeout
-    - Specify timeout to be used in seconds for running test suite and analysis, default is 600 seconds
+    - Specify timeout to be used in seconds for running test suite and analysis
 15. --pycg / -scg
     - Specify project to generate static call graphs using PyCG
 
