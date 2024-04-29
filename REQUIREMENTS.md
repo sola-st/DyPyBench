@@ -28,7 +28,7 @@ See below for a more detailed description for each downstream task.
 3. The total size of generated traces is less than 10 MB.
 
 ## Training LExecutor Prediction Model
-After generating LExecutor traces, we launch the training part. Instructions on how to train the models are found within the LExector repository (an already published work with artifact available and reusable): https://github.com/michaelpradel/LExecutor
+After generating LExecutor traces, we launch the training part. Instructions on how to train the models are found within the LExecutor repository (an already published work with artifact available and reusable): https://github.com/michaelpradel/LExecutor
 
 
 ## Generating Sequences of API Calls
@@ -39,7 +39,7 @@ After generating LExecutor traces, we launch the training part. Instructions on 
 # Requirements to Reproduce the Analysis with Plots
 Using our generated data and analysis notebooks, you can reproduce the results and plots of our analysis.
 ## Data files
-Can be found in our ZenoDo archive or within the release section of this repository
+Can be found in our Zenodo archive or within the release section of this repository
 
 ## Software
 1. Python3.8 or above
