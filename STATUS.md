@@ -2,7 +2,7 @@
 
 ## Available
 
-DypyBench is publicly accessible for download and use, including the option to recreate it from scratch. It comes with accompanying data files and analysis notebooks used for evaluation.
+DyPyBench is publicly accessible for download and use, including the option to recreate it from scratch. It comes with accompanying data files and analysis notebooks used for evaluation.
 
 
 ## Reusable
