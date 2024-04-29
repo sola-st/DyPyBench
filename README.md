@@ -7,7 +7,8 @@ ready-to-analyze (i.e., using an integrated Python dynamic analysis framework). 
 50 popular open-source projects from various application domains, with a total of 681K lines of Python code,
 and 30K test cases.
 
-**For more information, check our paper:https://www.software-lab.org/publications/fse2024_dypybench.pdf**
+**For more information, check our paper:
+https://www.software-lab.org/publications/fse2024_dypybench.pdf**
 
 ## Using the Benchmark
 
@@ -159,15 +160,10 @@ Here is the list of all available flags that you can use with each command.
 
 # Cite us
 ```bibtex
-@software{bouzenia_2024_10683760,
-  author       = {Bouzenia, Islem and
-                  Krishan, Bajaj Piyush and
-                  Pradel, Michael},
-  title        = {DyPyBench Docker Image},
-  month        = feb,
-  year         = 2024,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.10683760},
-  url          = {https://doi.org/10.5281/zenodo.10683760}
+@InProceedings{fse2024-DyPyBench,
+  author    = {Islem Bouzenia and Bajaj Piyush Krishan and Michael Pradel},
+  title     = {{DyPyBench}: {A} Benchmark of Executable {Python} Software},
+  booktitle = {ACM International Conference on the Foundations of Software Engineering (FSE)},
+  year      = {2024},
 }
 ```
