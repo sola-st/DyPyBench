@@ -1,9 +1,9 @@
 # Analysis and Results of the Paper
 Before running the analysis notebooks:
 1. unzip the three zip files within this folder (callgraph_seq.zip, pycg_output.zip, DynaPyt_callgraphs.zip).
-2. create a Python virtual environement (Use Python 3.8 or above)
+2. create a Python virtual environement (Use Python 3.10 or above)
     ```shell
-    python3.8 -m venv .venv
+    python3.10 -m venv .venv
     source .venv/bin/activate
     ```
 3. Install requirments
