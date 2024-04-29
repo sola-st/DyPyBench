@@ -42,7 +42,7 @@ Using our generated data and analysis notebooks, you can reproduce the results a
 Can be found in our ZenoDo archive or within the release section of this repository
 
 ## Software
-1. Python3.8 or above
+1. Python3.10 or above
 2. JupyterLab or VScode to run the notebook (any other notebook runner that supports IPyKernel is also possible)
 3. For other python packages requirements, check the file: experiments/requirements.txt
 
