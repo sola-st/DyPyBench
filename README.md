@@ -9,86 +9,55 @@ and 30K test cases.
 
 **For more information, check our paper:https://www.software-lab.org/publications/fse2024_dypybench.pdf**
 
-## Ready-to-Use Docker Image of DyPyBench
-**Important Note**
+## Using the Benchmark
 
-A quick way to use DyPyBench is to download the Docker image from DockerHub (see full instructions below);.
+Before downloading and using the Docker image of DyPyBench, please check the requirements [here](./REQUIREMENTS.md)
 
-A good practice is to always **start by running the test cases for each project**. This will create a folder for the project under ~/temp/projectN and will have all the installed dependencies and configuration.
+**Important Note:** 
 
-For any downstream task, use the projects folders under ~/temp that are created after running the test cases.
-### 1. Requirements
-    # Software
-    To use our shared image of dypybench, you need to have the following requirements:
-    - Docker >= 20.10
+As the image size is 55GB, we could not put it on ZenoDo because they only allow up to 50GB. 
+However, we put scripts to reproduce the paper's experiments and the obtained data on ZenoDo alongside the scripts required to rebuild DyPyBench from scratch.
+Zenodo Zip File: https://zenodo.org/records/10683759
 
-    # Hardware
-    The docker images takes around 55GB of disk space. However after launching the container, it gets decompressed and the size becomes 104 GB. Always intend for at least 110GB of space.
+## Step 1. Fetching the image from DockerHub
 
-    As everything is containerized within the docker image, DyPyBench does not require any dependencies from the user (Unless they want to customize it by adding their own software, tools...)
-
-To get a more detailed list of requirments (software, hardware, time...) for each usage of our artifact, please check the file [REQUIRMENTS.md](./REQUIREMENTS.md)
-
-### 2. Fetching the image from DockerHub
-**Important Note: as the image size is 55GB, we could not put it on ZenoDo because they only allow up to 50GB. However, we put scripts to reproduce the paper's results and the obtained data on ZenoDo 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10683759.svg)](https://zenodo.org/records/10683759)(also available within this repository)**
-
-1. Pull the docker image from dockerhub [<img src="https://img.shields.io/badge/dockerhub-DyPyBench-blue.svg?logo=Docker">](https://hub.docker.com/r/islemdockerdev/dypybench)
+1. Pull the docker image from dockerhub
     - docker pull islemdockerdev/dypybench:v2.0
 2. Run the docker image to start the container
     - docker run -itd --name dypybench islemdockerdev/dypybench:v2.0
 3. Login to the container
     - docker start -i dypybench
 
-### 3. Patching mechanism:
-Due to the substantial size of the image (55GB), uploading a new image for minor changes is impractical. Consequently, we propose implementing a patching mechanism as follows:
-
-- Patches addressing specific issues will appear in the "Releases" section of this repository; they will be provided as zip files.
-    
-- Copy the patch zip file into the Docker container and proceed to unzip it
-
-    ```bash
-    # Copy the patch to the docker image
-    docker cp patch_XX.zip dypybench:/DyPyBench
-    # Inside your docker, in the directory /DyPyBench run this command
-    unzip patch_XX.zip
-    ```
-    
-- Execute the command "python3.10 patch_XX.py" within the container, replacing "patch_XX.py" with the accurate script name obtained after unzipping the patch.
-    ```bash
-    # move to the patch directory
-    cd patch_XX
-    # execute the patch script
-    python3.10 patch_XX.py
-    ```
-
-### The list of important patches (so far):
-* [patch_2.1](https://github.com/sola-st/DyPyBench/releases/tag/v2.1.0)
-
-## DyPyBench Command Line Interface
+## Step 2. Interacting with the Command Line
 Here is a list of the most useful commands of DyPyBench.
 
 1. List the projects setup in DyPyBench
     - python3 dypybench.py --list
 2. Run Test Suites of one or more available projects
     - python3 dypybench.py --test 1 2 3 4
+    - Example: python3 dypybench.py --test 1
 2. Run DynaPyt Instrumentation
     - python3 dypybench.py --dynapyt_instrument 1 2 3 4 --dynapyt_file ./text/includes.txt --dynapyt_analysis TraceAll
+    - Example: python3 dypybench.py --dynapyt_instrument 1 --dynapyt_file ./text/includes.txt --dynapyt_analysis TraceAll
 3. Run DynaPyt Analysis
     - python3 dypybench.py --dynapyt_run 1 2 3 4 --dynapyt_analysis TraceAll
+    - Example: python3 dypybench.py --dynapyt_run 1 --dynapyt_analysis TraceAll
 4. Run LExecutor Instrumentation
     - python3 dypybench.py --lex_instrument 1 2 3 4 --lex_file ./text/includes.txt
+    - Example: python3 dypybench.py --lex_instrument 1 --lex_file ./text/includes.txt
 5. Run tests to generate LExecutor trace
     - python3 dypybench.py --lex_test 1 2 3 4
+    - Example: python3 dypybench.py --lex_test 1
 6. Run PyCG
     - python3 dypybench.py --pycg 1 2 3 4
+    - Example: python3 dypybench.py --pycg 1
 7. Update DynaPyt source code
     - python3 dypybench.py --update_dynapyt_source
 8. Update LExecutor source code
     - python3 dypybench.py --update_lex_source
 
+Alongside the commands above, you can have more control on some commands using the following list of available flags with explanation:
 
-Here is the list of all available flags that you can use with each command.
 ### Available flags
 1. --list / -l 
     - List the projects
@@ -121,24 +90,7 @@ Here is the list of all available flags that you can use with each command.
 15. --pycg / -scg
     - Specify project to generate static call graphs using PyCG
 
-### Structure of includes.txt for DynaPyt
-Contains the list of files to be instrumented when running DynaPyt.
-
-    - proj_name flag path
-        - proj_name: Project name for which the entry belongs to
-        - flag: d for directory path or f for file path
-        - path: path of the file/directory to instrument from the root of the project
-
-### Structure of includes.txt for LExecutor
-Contains the list of files to be instrumented when running LExecutor.
-
-    - proj_name path
-        - proj_name: Project name for which the entry belongs to
-        - path: path of the file to instrument from the root of DyPyBench
-
-
-### How to copy files from and to the Docker container?
-
+### Useful commands to copy files from and into the Docker image
 1. Using volume to map local directory to container directory
     - Start the container with the --volume flag and provide full folder paths
         - docker run -itd --volume local_folder:container_folder --name dypybench dypybench/dypybench:v1.0
@@ -147,8 +99,8 @@ Contains the list of files to be instrumented when running LExecutor.
 3. Copy files or folders individually to running container from local machine
     - docker cp local_path container_name:container_path
 
-# Analysis and Results of the Paper
-We also provide the notebooks (and intermediate data) used in the analysis presented the overview (Sec3) and analysis (Sec4) sections of our paper. Please find instructions on how to reproduce in [experiments/README.md](experiments/README.md).
+# Reproducing the Experiments of the Paper
+For the ones interested, we also provide the notebooks (and intermediate data) used in the analysis presented the overview (Sec3) and analysis (Sec4) sections of our paper. Please find instructions on how to reproduce in [experiments/README.md](experiments/README.md).
 
 General requirements can be found [here](./REQUIREMENTS.md).
 
@@ -177,6 +129,33 @@ Specific Python requirments can be found [here](./experiments/requirements.txt).
 4. Login to the docker container and execute the bash scripts.
     - docker start -i dypybench
     - ./scripts/install-all-projects.sh > install.log 2>&1
+
+# Maintainance and Future Support
+Due to the substantial size of the image (55GB), uploading a new image for minor changes is impractical. Consequently, we propose implementing a patching mechanism as follows:
+
+- Patches addressing specific issues will appear in the "Releases" section of this repository; they will be provided as zip files.
+    
+- Copy the patch zip file into the Docker container and proceed to unzip it
+
+    ```bash
+    # Copy the patch to the docker image
+    docker cp patch_XX.zip dypybench:/DyPyBench
+    # Inside your docker, in the directory /DyPyBench run this command
+    unzip patch_XX.zip
+    ```
+    
+- Execute the command "python3.10 patch_XX.py" within the container, replacing "patch_XX.py" with the accurate script name obtained after unzipping the patch.
+    ```bash
+    # move to the patch directory
+    cd patch_XX
+    # execute the patch script
+    python3.10 patch_XX.py
+    ```
+
+### The list of important patches (so far):
+* [patch_2.1](https://github.com/sola-st/DyPyBench/releases/tag/v2.1.0)
+
+Here is the list of all available flags that you can use with each command.
 
 # Cite us
 ```bibtex
