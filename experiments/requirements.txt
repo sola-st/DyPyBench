@@ -1,0 +1,5 @@
+matplotlib
+seq2pat
+thefuzz
+matplotlib-venn
+numpy

@@ -1,23 +1,38 @@
 # DyPyBench
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10683759.svg)](https://zenodo.org/records/10683759)
+[<img src="https://img.shields.io/badge/dockerhub-DyPyBench-blue.svg?logo=Docker">](https://hub.docker.com/r/islemdockerdev/dypybench)
+
 The first benchmark of Python projects that is large-scale, diverse, ready-to-run (i.e., with fully configured and prepared test suites), and
 ready-to-analyze (i.e., using an integrated Python dynamic analysis framework). The benchmark encompasses
 50 popular open-source projects from various application domains, with a total of 681K lines of Python code,
 and 30K test cases.
 
+**For more information, check our paper:https://www.software-lab.org/publications/fse2024_dypybench.pdf**
 
 ## Ready-to-Use Docker Image of DyPyBench
 **Important Note**
 
-A quick way to use DyPyBench is to download one of our images from DockerHub or ZenoDo (see instructions below); then login to the docker image.
+A quick way to use DyPyBench is to download the Docker image from DockerHub (see full instructions below);.
 
 A good practice is to always **start by running the test cases for each project**. This will create a folder for the project under ~/temp/projectN and will have all the installed dependencies and configuration.
 
 For any downstream task, use the projects folders under ~/temp that are created after running the test cases.
-### Requirements
+### 1. Requirements
+    # Software
     To use our shared image of dypybench, you need to have the following requirements:
     - Docker >= 20.10
 
-### Fetching the image from DockerHub
+    # Hardware
+    The docker images takes around 55GB of disk space. However after launching the container, it gets decompressed and the size becomes 104 GB. Always intend for at least 110GB of space.
+
+    As everything is containerized within the docker image, DyPyBench does not require any dependencies from the user (Unless they want to customize it by adding their own software, tools...)
+
+To get a more detailed list of requirments (software, hardware, time...) for each usage of our artifact, please check the file [REQUIRMENTS.md](./REQUIREMENTS.md)
+
+### 2. Fetching the image from DockerHub
+**Important Note: as the image size is 55GB, we could not put it on ZenoDo because they only allow up to 50GB. However, we put scripts to reproduce the paper's results and the obtained data on ZenoDo 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10683759.svg)](https://zenodo.org/records/10683759)(also available within this repository)**
+
 1. Pull the docker image from dockerhub [<img src="https://img.shields.io/badge/dockerhub-DyPyBench-blue.svg?logo=Docker">](https://hub.docker.com/r/islemdockerdev/dypybench)
     - docker pull islemdockerdev/dypybench:v2.0
 2. Run the docker image to start the container
@@ -25,7 +40,7 @@ For any downstream task, use the projects folders under ~/temp that are created 
 3. Login to the container
     - docker start -i dypybench
 
-### Patching mechanism:
+### 3. Patching mechanism:
 Due to the substantial size of the image (55GB), uploading a new image for minor changes is impractical. Consequently, we propose implementing a patching mechanism as follows:
 
 - Patches addressing specific issues will appear in the "Releases" section of this repository; they will be provided as zip files.
@@ -47,10 +62,10 @@ Due to the substantial size of the image (55GB), uploading a new image for minor
     python3.10 patch_XX.py
     ```
 
-### The list of important patches:
+### The list of important patches (so far):
 * [patch_2.1](https://github.com/sola-st/DyPyBench/releases/tag/v2.1.0)
 
-## DyPyBench usage manual
+## DyPyBench Command Line Interface
 Here is a list of the most useful commands of DyPyBench.
 
 1. List the projects setup in DyPyBench
@@ -107,18 +122,22 @@ Here is the list of all available flags that you can use with each command.
     - Specify project to generate static call graphs using PyCG
 
 ### Structure of includes.txt for DynaPyt
+Contains the list of files to be instrumented when running DynaPyt.
+
     - proj_name flag path
         - proj_name: Project name for which the entry belongs to
         - flag: d for directory path or f for file path
         - path: path of the file/directory to instrument from the root of the project
 
 ### Structure of includes.txt for LExecutor
+Contains the list of files to be instrumented when running LExecutor.
+
     - proj_name path
         - proj_name: Project name for which the entry belongs to
         - path: path of the file to instrument from the root of DyPyBench
 
 
-## How to copy files from and to the Docker container?
+### How to copy files from and to the Docker container?
 
 1. Using volume to map local directory to container directory
     - Start the container with the --volume flag and provide full folder paths
@@ -128,8 +147,16 @@ Here is the list of all available flags that you can use with each command.
 3. Copy files or folders individually to running container from local machine
     - docker cp local_path container_name:container_path
 
+# Analysis and Results of the Paper
+We also provide the notebooks (and intermediate data) used in the analysis presented the overview (Sec3) and analysis (Sec4) sections of our paper. Please find instructions on how to reproduce in [experiments/README.md](experiments/README.md).
 
-## Build DyPyBench from Scratch
+General requirements can be found [here](./REQUIREMENTS.md).
+
+Specific Python requirments can be found [here](./experiments/requirements.txt).
+
+
+## OPTIONAL: Build DyPyBench from Scratch
+
 ### Requirements
     - Python >= 3.8
     - pip >= 22.0
@@ -150,3 +177,18 @@ Here is the list of all available flags that you can use with each command.
 4. Login to the docker container and execute the bash scripts.
     - docker start -i dypybench
     - ./scripts/install-all-projects.sh > install.log 2>&1
+
+# Cite us
+```bibtex
+@software{bouzenia_2024_10683760,
+  author       = {Bouzenia, Islem and
+                  Krishan, Bajaj Piyush and
+                  Pradel, Michael},
+  title        = {DyPyBench Docker Image},
+  month        = feb,
+  year         = 2024,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.10683760},
+  url          = {https://doi.org/10.5281/zenodo.10683760}
+}
+```
