@@ -7,7 +7,8 @@ ready-to-analyze (i.e., using an integrated Python dynamic analysis framework). 
 50 popular open-source projects from various application domains, with a total of 681K lines of Python code,
 and 30K test cases.
 
-**For more information, check our paper:https://www.software-lab.org/publications/fse2024_dypybench.pdf**
+**For more information, check our paper:
+https://www.software-lab.org/publications/fse2024_dypybench.pdf**
 
 ## Ready-to-Use Docker Image of DyPyBench
 **Important Note**
@@ -30,7 +31,7 @@ For any downstream task, use the projects folders under ~/temp that are created 
 To get a more detailed list of requirments (software, hardware, time...) for each usage of our artifact, please check the file [REQUIRMENTS.md](./REQUIREMENTS.md)
 
 ### 2. Fetching the image from DockerHub
-**Important Note: as the image size is 55GB, we could not put it on ZenoDo because they only allow up to 50GB. However, we put scripts to reproduce the paper's results and the obtained data on ZenoDo 
+**Important Note: as the image size is 55GB, we could not put it on Zenodo because they only allow up to 50GB. However, we put scripts to reproduce the paper's results and the obtained data on Zenodo 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10683759.svg)](https://zenodo.org/records/10683759)(also available within this repository)**
 
 1. Pull the docker image from dockerhub [<img src="https://img.shields.io/badge/dockerhub-DyPyBench-blue.svg?logo=Docker">](https://hub.docker.com/r/islemdockerdev/dypybench)
@@ -180,15 +181,10 @@ Specific Python requirments can be found [here](./experiments/requirements.txt).
 
 # Cite us
 ```bibtex
-@software{bouzenia_2024_10683760,
-  author       = {Bouzenia, Islem and
-                  Krishan, Bajaj Piyush and
-                  Pradel, Michael},
-  title        = {DyPyBench Docker Image},
-  month        = feb,
-  year         = 2024,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.10683760},
-  url          = {https://doi.org/10.5281/zenodo.10683760}
+@InProceedings{fse2024-DyPyBench,
+  author    = {Islem Bouzenia and Bajaj Piyush Krishan and Michael Pradel},
+  title     = {{DyPyBench}: {A} Benchmark of Executable {Python} Software},
+  booktitle = {ACM International Conference on the Foundations of Software Engineering (FSE)},
+  year      = {2024},
 }
 ```
