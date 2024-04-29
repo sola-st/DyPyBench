@@ -156,7 +156,6 @@ Due to the substantial size of the image (55GB), uploading a new image for minor
 ### The list of important patches (so far):
 * [patch_2.1](https://github.com/sola-st/DyPyBench/releases/tag/v2.1.0)
 
-Here is the list of all available flags that you can use with each command.
 
 # Cite us
 ```bibtex
