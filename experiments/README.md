@@ -77,4 +77,4 @@ python3 dypybench.py --dynapyt_instrument 1 --dynapyt_file ./text/includes.txt -
 python3 dypybench.py --dynapyt_run 1 --dynapyt_analysis CallGraph
 ```
 ### Step 2: Patterns Mining
-The specification mining is done in the notebooks: [spec_mine.ipynb](./spec_mine.ipynb) and [spec_mine_old.ipynb](./spec_mine_old.ipynb)
+The specification mining is done in the notebooks: [spec_mine.ipynb](./spec_mine.ipynb) and [plots_sec4.3.ipynb](./plots_sec4.3.ipynb)
