@@ -8,7 +8,7 @@ Before running the analysis notebooks:
     ```
 3. Install requirments
     ```shell
-    pip install -r requirments.txt
+    pip install -r requirements.txt
     ```
 ## 1. DyPyBench Overview (Sec3)
 You can reproduce the plots of the overview of the benchmark by running the notebook: [dypybench_overview_plots.ipynb](./dypybench_overview_plots.ipynb)
