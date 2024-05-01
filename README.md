@@ -16,9 +16,9 @@ Before downloading and using the Docker image of DyPyBench, please check the req
 
 **Important Note:** 
 
-As the image size is 55GB, we could not put it on ZenoDo because they only allow up to 50GB. 
-However, we put scripts to reproduce the paper's experiments and the obtained data on ZenoDo alongside the scripts required to rebuild DyPyBench from scratch.
-Zenodo Zip File: https://zenodo.org/records/10683759
+As the image size is 55GB, we could not put it on zenodo because they only allow up to 50GB. 
+However, we put scripts to reproduce the paper's experiments and the obtained data on zenodo alongside the scripts required to rebuild DyPyBench from scratch.
+zenodo Zip File: https://zenodo.org/records/10683759
 
 ### Step 1. Fetching the image from DockerHub
 
