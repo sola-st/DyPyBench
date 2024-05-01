@@ -1,16 +1,16 @@
-# Requirements to Run DyPyBench
+# 1. Requirements to Run DyPyBench
 ## Software
     To use our shared image of dypybench, you need to have the following requirements:
     - Docker >= 20.10
 
 ## Hardware
-The docker images takes around 55GB of disk space. However after launching the container, it gets decompressed and the size becomes 104 GB. Always intend for at least 110GB of space.
+The docker images takes around 55GB of disk space (The size of download). However after launching the container, it gets decompressed and the size becomes 104 GB. Always intend for at least 110GB of space.
 
 As everything is containerized within the docker image, DyPyBench does not require any dependencies from the user (Unless they want to customize it by adding their own software, tools...)
 
 See below for a more detailed description for each downstream task.
 
-# Requirements to Rerun the Experiments of our Paper
+# 2. Requirements to Rerun the Experiments of our Paper
 
 ## DynaPyt Call Graphs Generation
 1. It takes around 180 hours to generate all the dynamic call graphs for all the projects within DyPyBench. This was obtained by running on a machine with 16 cores CPU and 64GB of RAM.
@@ -36,7 +36,7 @@ After generating LExecutor traces, we launch the training part. Instructions on 
 2. The generation happens within the Docker container, so no extra dependencies are needed (DynaPyt is installed within the image and ready to run).
 3. The total size of generated sequences is less than 10MB
 
-# Requirements to Reproduce the Analysis with Plots
+# 3. Requirements to Reproduce the Analysis with Plots
 Using our generated data and analysis notebooks, you can reproduce the results and plots of our analysis.
 ## Data files
 Can be found in our Zenodo archive or within the release section of this repository
@@ -47,4 +47,4 @@ Can be found in our Zenodo archive or within the release section of this reposit
 3. For other python packages requirements, check the file: experiments/requirements.txt
 
 ## Hardware
-Minimum of 16GB of RAM.
+Minimum of 64GB of RAM.

@@ -10,7 +10,7 @@ and 30K test cases.
 **For more information, check our paper:
 https://www.software-lab.org/publications/fse2024_dypybench.pdf**
 
-## Using the Benchmark
+## 1. Using the Benchmark
 
 Before downloading and using the Docker image of DyPyBench, please check the requirements [here](./REQUIREMENTS.md)
 
@@ -20,7 +20,7 @@ As the image size is 55GB, we could not put it on ZenoDo because they only allow
 However, we put scripts to reproduce the paper's experiments and the obtained data on ZenoDo alongside the scripts required to rebuild DyPyBench from scratch.
 Zenodo Zip File: https://zenodo.org/records/10683759
 
-## Step 1. Fetching the image from DockerHub
+### Step 1. Fetching the image from DockerHub
 
 1. Pull the docker image from dockerhub
     - docker pull islemdockerdev/dypybench:v2.0
@@ -29,7 +29,7 @@ Zenodo Zip File: https://zenodo.org/records/10683759
 3. Login to the container
     - docker start -i dypybench
 
-## Step 2. Interacting with the Command Line
+### Step 2. Interacting with the Command Line
 Here is a list of the most useful commands of DyPyBench.
 
 1. List the projects setup in DyPyBench
@@ -59,7 +59,7 @@ Here is a list of the most useful commands of DyPyBench.
 
 Alongside the commands above, you can have more control on some commands using the following list of available flags with explanation:
 
-### Available flags
+#### Available flags
 1. --list / -l 
     - List the projects
 2. --test / -t
@@ -91,7 +91,7 @@ Alongside the commands above, you can have more control on some commands using t
 15. --pycg / -scg
     - Specify project to generate static call graphs using PyCG
 
-### Useful commands to copy files from and into the Docker image
+#### Useful commands to copy files from and into the Docker image
 1. Using volume to map local directory to container directory
     - Start the container with the --volume flag and provide full folder paths
         - docker run -itd --volume local_folder:container_folder --name dypybench dypybench/dypybench:v1.0
@@ -100,7 +100,7 @@ Alongside the commands above, you can have more control on some commands using t
 3. Copy files or folders individually to running container from local machine
     - docker cp local_path container_name:container_path
 
-# Reproducing the Experiments of the Paper
+## 2. Reproducing the Experiments of the Paper
 For the ones interested, we also provide the notebooks (and intermediate data) used in the analysis presented the overview (Sec3) and analysis (Sec4) sections of our paper. Please find instructions on how to reproduce in [experiments/README.md](experiments/README.md).
 
 General requirements can be found [here](./REQUIREMENTS.md).
@@ -108,7 +108,7 @@ General requirements can be found [here](./REQUIREMENTS.md).
 Specific Python requirments can be found [here](./experiments/requirements.txt).
 
 
-## OPTIONAL: Build DyPyBench from Scratch
+## 3. OPTIONAL: Build DyPyBench from Scratch
 
 ### Requirements
     - Python >= 3.8
@@ -131,7 +131,7 @@ Specific Python requirments can be found [here](./experiments/requirements.txt).
     - docker start -i dypybench
     - ./scripts/install-all-projects.sh > install.log 2>&1
 
-# Maintainance and Future Support
+## 4. Maintainance and Future Support
 Due to the substantial size of the image (55GB), uploading a new image for minor changes is impractical. Consequently, we propose implementing a patching mechanism as follows:
 
 - Patches addressing specific issues will appear in the "Releases" section of this repository; they will be provided as zip files.
