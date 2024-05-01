@@ -39,7 +39,7 @@ After generating LExecutor traces, we launch the training part. Instructions on 
 # 3. Requirements to Reproduce the Analysis with Plots
 Using our generated data and analysis notebooks, you can reproduce the results and plots of our analysis.
 ## Data files
-Can be found in our Zenodo archive or within the release section of this repository
+Can be found in our zenodo archive or within the release section of this repository
 
 ## Software
 1. Python3.10 or above
